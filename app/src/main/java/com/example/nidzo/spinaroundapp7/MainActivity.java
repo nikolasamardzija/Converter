@@ -40,14 +40,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(!amountTextView.getText().toString().equals("")) {
+
                     addListenerToUnitTypeSpinner();
                     checkIfConvertingFromTsp(itemSelectedInSpinner);
                     System.out.println("changed");
-                }else {
-                    amountTextView.setText("0");
 
-                }
             }
 
             @Override
@@ -128,7 +125,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void updateUnitTypesUsingTsp(Quantity.Unit curentUnit) {
-        double doubleToConvert = Double.parseDouble(amountTextView.getText().toString());
+        double doubleToConvert;
+
+        try {
+            if(!amountTextView.getText().toString().equals("")) {
+                doubleToConvert = Double.parseDouble(amountTextView.getText().toString());
+            }else {
+                doubleToConvert = 0d;
+            }
+        }catch (NumberFormatException e){
+            doubleToConvert = 0d;
+        }
+
+
         String teaspoonValueAndUnit = doubleToConvert + " tsp";
         teaspoonTextView.setText(teaspoonValueAndUnit);
         updateUnitTextFieldTsp(doubleToConvert, Quantity.Unit.tbs, tablespoonTextView);
