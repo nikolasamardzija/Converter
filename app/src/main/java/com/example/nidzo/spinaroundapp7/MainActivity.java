@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     String itemSelectedInSpinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //github change
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -101,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             case "teaspoon": updateUnitTypesUsingTsp(Quantity.Unit.tsp);
                 break;
             case "tablespoon" : updateUnitTypesUsingOther(Quantity.Unit.tbs);
-                break;;
+                break;
             case "cup" : updateUnitTypesUsingOther(Quantity.Unit.cup);
                 break;
             case "ounce" : updateUnitTypesUsingOther(Quantity.Unit.oz);
